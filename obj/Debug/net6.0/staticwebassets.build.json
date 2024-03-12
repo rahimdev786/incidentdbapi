@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "z5g8XndUCd/ysp63mFQYr6NaQwLqv5fiQ9JjvWjmZpU=",
+  "Source": "incidentdbapi",
+  "BasePath": "_content/incidentdbapi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
