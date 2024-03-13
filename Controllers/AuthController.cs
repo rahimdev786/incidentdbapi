@@ -5,9 +5,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Cors;
 
 namespace incidentdbapi.Controllers;
 
+[EnableCors("AllowAll")]
 public class AuthController : ControllerBase
 {
     private readonly ApplicationDBContext _dbContext;
@@ -21,7 +23,7 @@ public class AuthController : ControllerBase
 
     [HttpPost("authenticate")]
     [ProducesResponseType(StatusCodes.Status201Created)]
-    public async Task<IActionResult> Authenticate([FromBody] RegistrationModel models)
+    public async Task<IActionResult> Authenticate([FromBody] Login models)
     {
         var user = await this._dbContext.RegisterDBSet.FirstOrDefaultAsync(
             item => item.UserName == models.UserName
@@ -38,7 +40,7 @@ public class AuthController : ControllerBase
         var tokenDescriptor = new SecurityTokenDescriptor
         {
             Subject = new ClaimsIdentity(new Claim[] { new(ClaimTypes.Name, user.UserName!), new(ClaimTypes.Role, user.UserRole!) }),
-            Expires = DateTime.Now.AddSeconds(30),
+            Expires = DateTime.Now.AddHours(5),
             SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(tokenKey), SecurityAlgorithms.HmacSha256)
         };
         var token = tokenHandler.CreateToken(tokenDescriptor);

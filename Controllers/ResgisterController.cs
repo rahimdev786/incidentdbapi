@@ -1,11 +1,13 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using incidentdbapi.Controllers;
+using Microsoft.AspNetCore.Cors;
 
 namespace incidentdbapi.Controllers;
 
 [ApiController]
 [Route("[controller]")]
+[EnableCors("AllowAll")]
 public class ResgisterController : ControllerBase
 {
     private readonly ApplicationDBContext _context;

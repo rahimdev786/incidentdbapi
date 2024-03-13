@@ -1,5 +1,6 @@
 using incidentdbapi;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 namespace incidentdbapi;
@@ -7,6 +8,7 @@ namespace incidentdbapi;
 [Authorize]
 [ApiController]
 [Route("[controller]")]
+[EnableCors("AllowAll")]
 public class IncidentEntryController : ControllerBase
 {
     private readonly ApplicationDBContext _context;

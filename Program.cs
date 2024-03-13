@@ -22,6 +22,18 @@ builder.Services.AddDbContext<ApplicationDBContext>(options =>
 });
 
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll",
+            builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            });
+
+});
+
 //jWT Token
 var _JwtSetting = builder.Configuration.GetSection("JwtSetting");
 builder.Services.Configure<JwtSetting>(_JwtSetting);
@@ -56,6 +68,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors("AllowAll");
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
