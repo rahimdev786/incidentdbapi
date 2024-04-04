@@ -32,6 +32,18 @@ public class ResgisterController : ControllerBase
         return value == null ? NotFound() : Ok(value);
     }
 
+    [HttpPost("email")]
+    [ProducesResponseType(typeof(RegistrationModel), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<ActionResult> Resetpassword([FromBody] ResetPasswordModel model)
+    {
+        var test = await _context.RegisterDBSet.Where(x => x.UserEmail == model.UserEmail).FirstOrDefaultAsync();
+        if (model.UserEmail != test!.UserEmail) return BadRequest();
+        test!.UserName = model.UserEmail;
+        test!.UserPassword = model.UserPassword;
+        return CreatedAtAction(nameof(Update), new { id = test!.UserId }, test);
+    }
+
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status201Created)]
     public async Task<IActionResult> Create(RegistrationModel model)
