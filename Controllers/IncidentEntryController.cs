@@ -23,7 +23,6 @@ public class IncidentEntryController : ControllerBase
         return await _context.IncidentsDBSet.ToListAsync();
     }
 
-
     [HttpGet("{id}")]
     [ProducesResponseType(typeof(IncidentModel), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]

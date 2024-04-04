@@ -3,6 +3,9 @@ using incidentdbapi;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +16,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+var smtpCOnnection = builder.Configuration.GetSection("MailSettings");
+builder.Services.Configure<MailSettings>(smtpCOnnection);
+builder.Services.AddTransient<IMailService, MailService>();
 
 // congigure DB
 var dbconnection = builder.Configuration.GetConnectionString("DefaultConnection");

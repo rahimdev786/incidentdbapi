@@ -23,6 +23,9 @@ namespace incidentdbapi.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
+                    b.Property<string>("IncidentAssignName")
+                        .HasColumnType("longtext");
+
                     b.Property<string>("IncidentAssignTo")
                         .HasColumnType("longtext");
 

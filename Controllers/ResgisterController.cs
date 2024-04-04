@@ -8,6 +8,7 @@ namespace incidentdbapi.Controllers;
 [ApiController]
 [Route("[controller]")]
 [EnableCors("AllowAll")]
+
 public class ResgisterController : ControllerBase
 {
     private readonly ApplicationDBContext _context;

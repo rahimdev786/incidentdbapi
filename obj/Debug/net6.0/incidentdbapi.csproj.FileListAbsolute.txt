@@ -40,3 +40,11 @@
 /Users/rahim/Documents/GitHub/incidentdbapi/bin/Debug/net6.0/MySqlConnector.dll
 /Users/rahim/Documents/GitHub/incidentdbapi/bin/Debug/net6.0/Pomelo.EntityFrameworkCore.MySql.dll
 /Users/rahim/Documents/GitHub/incidentdbapi/bin/Debug/net6.0/System.IdentityModel.Tokens.Jwt.dll
+/Users/rahim/Documents/GitHub/incidentdbapi/bin/Debug/net6.0/BouncyCastle.Cryptography.dll
+/Users/rahim/Documents/GitHub/incidentdbapi/bin/Debug/net6.0/MailKit.dll
+/Users/rahim/Documents/GitHub/incidentdbapi/bin/Debug/net6.0/MimeKit.dll
+/Users/rahim/Documents/GitHub/incidentdbapi/bin/Debug/net6.0/System.Formats.Asn1.dll
+/Users/rahim/Documents/GitHub/incidentdbapi/bin/Debug/net6.0/System.Security.Cryptography.Pkcs.dll
+/Users/rahim/Documents/GitHub/incidentdbapi/bin/Debug/net6.0/System.Text.Encoding.CodePages.dll
+/Users/rahim/Documents/GitHub/incidentdbapi/bin/Debug/net6.0/runtimes/win/lib/net6.0/System.Security.Cryptography.Pkcs.dll
+/Users/rahim/Documents/GitHub/incidentdbapi/bin/Debug/net6.0/runtimes/win/lib/net6.0/System.Text.Encoding.CodePages.dll

@@ -26,7 +26,7 @@ public class AuthController : ControllerBase
     public async Task<IActionResult> Authenticate([FromBody] Login models)
     {
         var user = await this._dbContext.RegisterDBSet.FirstOrDefaultAsync(
-            item => item.UserName == models.UserName
+            item => item.UserEmail == models.UserEmail
             && item.UserPassword == models.UserPassword);
 
         if (user == null)
@@ -46,6 +46,6 @@ public class AuthController : ControllerBase
         var token = tokenHandler.CreateToken(tokenDescriptor);
         // convert ito string
         var finalToken = tokenHandler.WriteToken(token);
-        return Ok(new { message = "sucessful login", token = finalToken, code = 200 });
+        return Ok(new { message = "sucessful login", token = finalToken, code = 200, username = user.UserName, userrole = user.UserRole, useremail = user.UserEmail });
     }
 }

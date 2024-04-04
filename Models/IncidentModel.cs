@@ -14,6 +14,8 @@ public class IncidentModel
 
     public string? IncidentAssignTo { get; set; }
 
+    public string? IncidentAssignName { get; set; }
+
     public string? IncidentStatus { get; set; }
 
     public string? IncidentCreateDate { get; set; }
